@@ -13,12 +13,12 @@
       font-family: Arial, sans-serif;
       background: #f4f4f4;
       margin: 0;
-      padding: 0;
+      padding: 40px;
     }
 
     .container {
       max-width: 700px;
-      margin: 100px auto;
+      margin: 60px auto;
       background: white;
       padding: 40px;
       border-radius: 20px;
@@ -26,38 +26,55 @@
     }
 
     h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: 48px;
+      margin-bottom: 15px;
+      line-height: 1.1;
     }
 
     p {
       color: gray;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       font-size: 18px;
+      line-height: 1.5;
     }
 
-    input, select {
+    input,
+    select,
+    textarea {
       width: 100%;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 18px;
+      border-radius: 12px;
       border: 1px solid #ddd;
       font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
     }
 
     button {
       width: 100%;
-      padding: 15px;
+      padding: 18px;
       background: black;
       color: white;
       border: none;
-      border-radius: 10px;
-      font-size: 16px;
+      border-radius: 12px;
+      font-size: 17px;
       cursor: pointer;
+      font-weight: bold;
     }
 
     button:hover {
       opacity: 0.9;
+    }
+
+    .label {
+      margin-bottom: 8px;
+      font-weight: bold;
+      display: block;
     }
 
   </style>
@@ -69,29 +86,103 @@
   <div class="container">
 
     <h1>
-      Finde Werkstudentenjobs in Berlin.
+      Finde Studentenjobs in Berlin.
     </h1>
 
     <p>
-      Trag dich ein und erhalte innerhalb von 48h passende Jobmöglichkeiten.
+      Trag dich ein und erhalte innerhalb von 48h passende Jobmöglichkeiten für Praktika, Werkstudentenjobs und Teilzeitstellen.
     </p>
 
-    <form>
+    <form
+      action="https://formspree.io/f/xredkbnw"
+      method="POST"
+      enctype="multipart/form-data"
+    >
 
-      <input type="text" placeholder="Vorname">
+      <input
+        type="text"
+        name="vorname"
+        placeholder="Vorname"
+        required
+      >
 
-      <input type="email" placeholder="E-Mail">
+      <input
+        type="text"
+        name="nachname"
+        placeholder="Nachname"
+        required
+      >
 
-      <input type="text" placeholder="Studiengang">
+      <input
+        type="email"
+        name="email"
+        placeholder="E-Mail"
+        required
+      >
 
-      <select>
-        <option>Was suchst du?</option>
-        <option>Werkstudentenjob</option>
-        <option>Praktikum</option>
-        <option>Teilzeitjob</option>
+      <input
+        type="text"
+        name="studiengang"
+        placeholder="Studiengang"
+        required
+      >
+
+      <input
+        type="text"
+        name="universitaet"
+        placeholder="Universität"
+      >
+
+      <input
+        type="text"
+        name="linkedin"
+        placeholder="LinkedIn Profil (optional)"
+      >
+
+      <select
+        name="jobtyp"
+        required
+      >
+
+        <option value="">
+          Was suchst du?
+        </option>
+
+        <option>
+          Werkstudentenjob
+        </option>
+
+        <option>
+          Praktikum
+        </option>
+
+        <option>
+          Teilzeitjob
+        </option>
+
       </select>
 
-      <button>
+      <input
+        type="text"
+        name="skills"
+        placeholder="Skills (z.B. Python, Excel, Marketing)"
+      >
+
+      <textarea
+        name="beschreibung"
+        placeholder="Erzähl kurz etwas über dich..."
+      ></textarea>
+
+      <label class="label">
+        Lebenslauf hochladen
+      </label>
+
+      <input
+        type="file"
+        name="cv"
+      >
+
+      <button type="submit">
         Kostenlos bewerben
       </button>
 
